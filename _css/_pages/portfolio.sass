@@ -1,0 +1,606 @@
+.page.portfolio
+  @include flex(column, center, center, nowrap)
+  z-index: 999
+
+  overflow: hidden
+
+  .page-content
+    bottom: auto
+    top: 0px
+
+
+
+
+
+  .side-wrap
+    @include flex(row, center, center, nowrap)
+    width: 100vw
+    max-width: 100vw
+
+    &.top
+      @include flex(row, center, center, nowrap)
+      position: relative
+      height: 70vh
+      max-height: 100%
+      background: $blue
+      background: -moz-linear-gradient(45deg, rgba(88,201,245,0.75) 0%, rgba(160,219,242,0.75) 100%)
+      background: -webkit-linear-gradient(45deg, rgba(88,201,245,0.75) 0%,rgba(160,219,242,0.75) 100%)
+      background: linear-gradient(45deg, rgba(88,201,245,0.75) 0%,rgba(160,219,242,0.75) 100%)
+
+      .border-wrap
+        position: absolute
+        left: 0
+        width: 100vw
+        z-index: 99
+
+        &.bottom
+          bottom: 0
+          transform: rotateZ(180deg)
+
+        &.top
+          top: 0
+
+        *
+          position: absolute
+          top: 0
+          left: 0
+          background: $dark-blue
+
+        .a
+          height: 3vh
+          width: 100vw
+
+        .b
+          height: 5vh
+          width: 250px
+          transform: skewX(-20deg)
+
+      .select-msg
+        @include transition(400ms)
+        font-family: $gamer
+        font-size: 50px
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 1)
+        text-align: center
+        color: $white
+        animation: msgBounce 500ms linear infinite alternate
+        opacity: 1
+
+        max-width: 90vw
+
+        position: absolute
+        //top: 50%
+
+        &.hide
+          animation-play-state: paused
+          transform: translateY(50px)
+          opacity: 0
+
+      .backdrop
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        width: 100%
+        height: 100%
+
+        background: $blue
+        background: -moz-linear-gradient(45deg, rgba(88,201,245,1) 0%, rgba(160,219,242,1) 100%)
+        background: -webkit-linear-gradient(45deg, rgba(88,201,245,1) 0%,rgba(160,219,242,1) 100%)
+        background: linear-gradient(45deg, rgba(88,201,245,1) 0%,rgba(160,219,242,1) 100%)
+
+        .item
+          @include transition(400ms)
+
+          position: absolute
+          top: 0
+          left: 0
+
+          width: 100%
+          height: 100%
+          background-size: cover
+          background-position: center
+
+          transform: translateX(50px)
+          opacity: 0
+
+          &.ph
+            background-image: url('_pics/port_bg/ph.png')
+          &.tj
+            background-image: url('_pics/port_bg/tj.png')
+          &.vel
+            background-image: url('_pics/port_bg/vel.png')
+          &.x1346
+            background-image: url('_pics/port_bg/1346.png')
+          &.drunkdev
+            background-image: url('_pics/port_bg/drunkdev.png')
+          &.texanne
+            background-image: url('_pics/port_bg/texanne.png')
+          &.cms
+            background-image: url('_pics/port_bg/cms.png')
+          &.stamos
+            background-image: url('_pics/port_bg/stamos.png')
+          &.everhart
+            background-image: url('_pics/port_bg/everhart.png')
+          &.designs
+            background-image: url('_pics/port_bg/designs.png')
+
+          &.show
+            transform: translateX(0px)
+            opacity: 1
+
+      .site-wrap
+        @include flex(row, flex-start, center, nowrap)
+        position: relative
+        width: 80vw
+        height: 70%
+        overflow-y: scroll
+
+        &::-webkit-scrollbar
+          width: 0px
+          background: transparent
+
+        &.hide
+          .scroll-bar
+            display: none
+          .side.left
+            .buttons-wrap
+              transform: translateX(-40px)
+              opacity: 0
+          .side.right
+            .desc-wrap, .stats-wrap
+              transform: translateX(40px)
+              opacity: 0
+
+        .side
+          @include flex(column, flex-start, flex-start, nowrap)
+          //height: 100%
+
+          & > *
+            width: 100%
+
+            &:not(:last-child)
+              margin-bottom: 15px
+
+          &.left
+            width: 350px
+            max-width: 100%
+            margin-right: 45px
+
+
+            .logo
+              @include flex(row, center, center, nowrap)
+              position: relative
+
+              //height: 32%
+              min-height: 100px
+              max-height: 100px
+
+              .item
+                @include transition(400ms)
+                width: 100%
+                height: 100%
+
+                position: absolute
+                top: 0
+                left: 0
+
+                background-repeat: no-repeat
+                background-position: center
+                background-size: auto 70%
+
+                transform: translateX(-40px)
+                opacity: 0
+
+                &.show
+                  transform: translateX(0px)
+                  opacity: 1
+
+                &.ph
+                  background-image: url('_pics/port_logos/ph.png')
+                &.tj
+                  background-image: url('_pics/port_logos/tj.png')
+                &.vel
+                  background-image: url('_pics/port_logos/vel.png')
+                &.x1346
+                  background-image: url('_pics/port_logos/1346.png')
+                &.drunkdev
+                  background-image: url('_pics/port_logos/drunkdev.png')
+                &.texanne
+                  background-image: url('_pics/port_logos/texanne.png')
+                &.cms
+                  background-image: url('_pics/port_logos/cms.png')
+                &.stamos
+                  background-image: url('_pics/port_logos/stamos.png')
+                &.everhart
+                  background-image: url('_pics/port_logos/everhart.png')
+                &.designs
+                  background-image: url('_pics/port_logos/designs.png')
+
+            .accolades
+              @include flex(column, flex-start, flex-start, nowrap)
+              @include transition(200ms)
+              //min-height: 200px
+              margin-bottom: 20px
+              position: relative
+
+              .item
+                position: absolute
+                top: 0
+                left: 0
+
+                &.show
+                  .sub-item
+                    transform: translateX(0px)
+                    opacity: 1
+
+                .sub-item
+                  @include transition(400ms)
+                  @include flex(row, center, flex-start, nowrap)
+                  font-family: $arialround
+                  color: #333333
+                  transform: translateX(-40px)
+                  opacity: 0
+
+                  &:not(:last-child)
+                    margin-bottom: 18px
+
+                  &:nth-child(2)
+                    transition-delay: 50ms
+                  &:nth-child(3)
+                    transition-delay: 100ms
+                  &:nth-child(4)
+                    transition-delay: 150ms
+                  &:nth-child(5)
+                    transition-delay: 200ms
+                  &:nth-child(6)
+                    transition-delay: 250ms
+
+                  .ic
+                    margin-right: 16px
+                  .text
+                    font-size: 12px
+
+            .buttons-wrap
+              @include flex(row, center, space-between, nowrap)
+              @include transition(400ms)
+              transform: translateX(0px)
+              opacity: 1
+
+              a.see-more
+                @include transition(300ms)
+                padding: 10px 0
+                //width: 50%
+                width: 100%
+                border-color: #d98723
+                background-color: #f29727
+                color: $white
+                font-family: $gamer
+                text-align: center
+                font-size: 20px
+
+                &:hover
+                  background-color: #d98723
+                  border-color: #f29727
+
+                &:not(:last-child)
+                  margin-right: 15px
+
+          &.right
+            width: 435px
+            max-width: 100%
+
+            .box
+              background-color: #295e72
+              border-color: #376b8c
+              color: $white
+
+            .desc-wrap
+              @include transition(400ms)
+              transform: translateX(0px)
+              opacity: 1
+
+              position: relative
+
+              padding: 20px
+              //min-height: 50%
+              min-height: 200px
+
+
+              .item
+                width: calc(100% - 40px)
+                height: calc(100% - 40px)
+                position: absolute
+                left: 20px
+                top: 20px
+
+                overflow-y: auto
+                overflow-x: hidden
+
+                -ms-overflow-style: none
+                scrollbar-width: none
+
+                &::-webkit-scrollbar
+                  display: none
+
+                &.show
+                  .title, .desc
+                    transform: translateX(0px)
+                    opacity: 1
+
+
+                --lh: 1.1rem
+
+
+                .title, .desc
+                  @include transition(400ms)
+                  position: relative
+                  transform: translateX(40px)
+                  opacity: 0
+                  line-height: var(--lh)
+                  width: 100%
+
+
+                .title
+                  font-family: $gamer
+                  font-size: 30px
+                  margin-bottom: 15px
+                .desc
+                  font-family: $arialround
+                  font-size: 12px
+                  text-overflow: ellipsis
+                  overflow: hidden
+
+                  transition-delay: 80ms
+
+            .stats-wrap
+              @include flex(column, flex-start, flex-start, nowrap)
+              @include transition(400ms)
+              transform: translateX(0px)
+              opacity: 1
+
+              //height: 40%
+              //max-height: 40%
+
+              & > .item
+                @include flex(row, center, space-between, nowrap)
+                width: 100%
+                flex: 1
+                padding: 12px
+
+                &.php
+                  .item.selected
+                    background-color: $php
+                &.jquery
+                  .item.selected
+                    background-color: $jquery
+                &.ajax
+                  .item.selected
+                    background-color: $ajax
+
+                &:not(:last-child)
+                  margin-bottom: 12px
+
+                .title
+                  font-family: $gamer
+                  font-size: 22px
+                  width: 20%
+                  margin-right: 15px
+
+                .stat-bar
+                  @include flex(row, center, space-between, nowrap)
+                  width: 100%
+                  height: 100%
+
+                  &.reverse
+                    .item
+                      @for $i from 1 through 15
+                        &:nth-child(#{$i})
+                          transition-delay: 450ms / $i
+
+                  .item
+                    @include transition(100ms)
+                    flex: 1
+                    background-color: #404040
+                    border: solid 3px #333333
+                    //height: 150%
+                    height: 25px
+                    border-radius: 5px
+
+                    @for $i from 1 through 15
+                      &:nth-child(#{$i})
+                        transition-delay: 30ms * $i
+
+                    &:not(:last-child)
+                      margin-right: 3px
+
+    &.bottom
+      height: 30vh
+      background-color: $off-white
+
+      .port-icons-wrap
+        @include flex(column, center, center, nowrap)
+        padding: 30px
+        //background-color: rgba(230,230,230,1)
+        //border: solid 2px rgba(205,205,205,1)
+        border-radius: 20px
+
+        .row
+          @include flex(row, center, center, nowrap)
+
+          &.top
+            margin-bottom: 30px
+
+          .item
+            @include transition(400ms)
+            cursor: pointer
+            filter: grayscale(80%)
+            //border: solid 1px rgba(230,230,230,1)
+            outline-style: double
+            outline-color: rgba(242, 151, 39,0)
+            outline-width: 10px
+            outline-offset: 5px
+
+            &.selected, &:hover
+              outline-color: rgba(242, 151, 39,1)
+              filter: grayscale(0%)
+              animation: outlineBounce 500ms linear infinite alternate
+            &:hover:not(.selected)
+              outline-color: rgba(88, 201, 245,1)
+
+
+            &:not(:last-child)
+              margin-right: 30px
+
+            img
+              width: 70px
+
+    &.bottom.mobile
+      @include transition(400ms)
+      flex-direction: column
+      justify-content: flex-start
+
+      cursor: pointer
+
+      position: fixed
+      z-index: 110
+      max-height: 85vh
+      height: 68vh
+
+      align-items: flex-start
+
+      padding: 0px 20px 20px 20px
+
+      //top: calc(95vh - 20px)
+      top: calc(95% - 18px)
+
+      background: $white
+
+      &.up
+        top: 32%
+
+        .open-button
+          .arrow-wrap
+            svg
+              transform: rotateX(180deg)
+            &::after
+              content: "Close"
+
+        .port-icons-wrap
+          .scroll-bar
+            transform: translateY( calc(63% - 20px) )
+
+      .border-tracer
+        height: 20px
+        width: 150px
+        background: $white
+        border-radius: 20px 20px 0 0
+
+        position: absolute
+        bottom: 99%
+        left: 50%
+
+        transform: translateX(-75px)
+
+
+      .open-button
+        @include flex(row, center, center, nowrap)
+
+        width: 100%
+
+        .arrow-wrap
+          margin: 4px 0px 20px 0px
+
+          svg
+            @include transition(400ms)
+            transform: rotateX(0deg)
+            width: 30px
+            height: 10px
+          &::after
+            content: "Open"
+
+      .port-icons-wrap
+        @include flex(column, flex-start, flex-start, nowrap)
+        width: 100%
+        padding: 0px
+        overflow-y: auto
+
+        position: relative
+
+        .item
+          @include flex(row, flex-start, flex-start, nowrap)
+          width: 100%
+          min-width: 100%
+          padding: 30px 0px
+
+          &:not(:last-child)
+            border-bottom: solid 1px $lighter-gray
+
+          img
+            width: min(100px, 25vw)
+            margin-right: 15px
+
+          .desc
+            width: 100%
+
+          .title
+            margin-bottom: 12px
+
+          .accolade
+            @include flex(row, center, flex-start, nowrap)
+            vertical-align: middle
+
+            .ic
+              margin-right: 10px
+            .text
+              font-size: 0.9em
+              color: $light-gray
+
+
+
+
+    .box
+      border: solid 6px
+
+.hidden
+  display: none !important
+@keyframes msgBounce
+  0%
+    font-size: 50px
+  100%
+    font-size: 56px
+
+@keyframes outlineBounce
+  0%
+    outline-offset: 5px
+  100%
+    outline-offset: 8px
+
+
+
+@media only screen and (min-width: 1400px)
+  .page.portfolio .side-wrap.bottom .port-icons-wrap .row .item img
+    width: 100px
+
+@media only screen and (max-width: 786px)
+  .page.portfolio
+    .side-wrap
+      &.top
+        height: calc(95vh - 20px)
+        max-height: 95vh
+
+
+        .site-wrap
+          flex-direction: column
+          justify-content: flex-start
+          align-items: center
+
+          .side
+            &.left
+              margin-bottom: 30px
+              margin-right: 0px
+
+              .accolades
+                margin-bottom: 25px
+
+            & > *:not(:last-child)
+              margin-bottom: 25px

@@ -1,0 +1,52 @@
+//output: index.php
+html    
+head      
+  title The Matt Haslem                   
+  //link(rel="stylesheet", type="text/css", href="main.css")   
+  include _includes/temp_css.php    
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")   
+  include _jquery/scripts   
+body             
+  #all-content       
+    //include _includes/contact          
+    .page.home.open.curr                
+             
+               
+      //.pop-up.site-not-done
+        h2 THIS SITE IS NOT FINISHED
+        P
+          | I just wanted to let you know that this site is nowhere near complete. I will continue to work on it as much as I can. Feel free to look around in the mean time.
+        .button.confirm.close-popup  
+          | Got It!                
+      .logo-wrap             
+        include _pics/logo.svg            
+      .matt-wrap              
+        include _pics/matt.svg                     
+                    
+      .menu-wrap.tablet-hide.index             
+        .menu-links          
+          .link(data-targ="portfolio")   
+            a(href="#portfolio" data-targ-page="portfolio") Portfolio
+          .link
+            a(href="#skills" data-targ-page="skills") Skills
+          .link
+            a(href="#about" data-targ-page="about") About Me  
+ 
+        .chalk       
+        .eraser     
+          include _pics/eraser.svg  
+      .strap.tablet-hide.second  
+      .strap.tablet-hide   
+            
+      .home-navbar-wrap.larger-than-tablet-hide 
+        a.nav-item(href="#portfolio" data-targ-page="portfolio") Portfolio
+          .tracer  
+        a.nav-item(href="#skills" data-targ-page="skills") Skills
+          .tracer
+        a.nav-item(href="#about" data-targ-page="about") About Me
+          .tracer  
+         
+    include _includes/_pages/portfolio 
+    include _includes/_pages/skills 
+    include _includes/_pages/about   
+              

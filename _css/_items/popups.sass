@@ -1,0 +1,38 @@
+.pop-up
+  @include flex(column, center, center, nowrap)
+  @include transition(300ms)
+  position: absolute
+  z-index: 9999
+
+  background: $orange
+  border: solid 5px $dark-orange
+  border-radius: 8px
+
+  padding: min(60px, 5vw)
+
+  color: $white
+
+  max-width: 70vw
+
+  transform: translateY(20px)
+  opacity: 0
+
+  &.open
+    opacity: 1
+    transform: translateY(0px)
+
+  h2
+    font-family: $bebas
+    font-size: 34px
+    margin-bottom: 0px
+
+  p
+    margin-top: 0px
+
+  & > *:not(:last-child)
+    margin-bottom: 40px
+
+@media only screen and (max-width: 786px)
+  .pop-up
+    width: 90vw
+    max-width: 90vw

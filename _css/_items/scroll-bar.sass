@@ -1,0 +1,59 @@
+//.scroll-bar
+  position: absolute
+  z-index: 9998
+  top: 5%
+  right: 5px
+  height: 90%
+  width: 5px
+
+  border-radius: 12px
+  background-color: rgba(200,200,200,0.4)
+  //background-color: $red
+
+  .tracer
+    position: absolute
+    z-index: 9999
+    top: 0px
+    right: 0px
+    height: 20px
+    width: 5px
+
+    border-radius: 12px
+    background-color: $white-opac
+
+[data-has-scroll="true"]
+  -ms-overflow-style: none
+  scrollbar-width: none
+  overflow-y: auto
+
+  &::-webkit-scrollbar
+    display: none
+
+.scroll-bar
+  @include transition(250ms)
+  position: fixed
+  z-index: 9998
+  top: 5%
+  right: 5px
+  height: 90%
+  width: 5px
+
+  border-radius: 50px
+  background-color: rgba(200,200,200,0.4)
+  //background-color: $red
+
+  opacity: 0.5
+
+  &.active
+    opacity: 1
+
+  .tracer
+    position: absolute
+    z-index: 9999
+    top: 0px
+    right: 0px
+    height: 20px
+    width: 5px
+
+    border-radius: 50px
+    background-color: $white-opac

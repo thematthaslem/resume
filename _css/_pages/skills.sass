@@ -1,0 +1,171 @@
+.page.skills
+  @include flex(column, center, center, nowrap)
+  z-index: 1111
+  @include fullscreen()
+  background-color: rgba(160,219,242,1)
+
+  overflow: hidden
+
+
+
+  // Background
+  $fg-h: max(20vh, 150px)
+  $bg-h: max(7vh, 52px)
+  .background
+    @include flex(row, flex-end, flex-end, nowrap)
+    @include fullscreen()
+    position: absolute
+    bottom: 0
+    left: 0
+    overflow: hidden
+
+
+
+    background: url('_pics/skills/grass_bg.svg')
+    background-repeat: repeat-x
+    background-position: bottom
+    background-size: auto $bg-h
+
+
+    .fg
+      max-height: $fg-h
+      height: $fg-h
+      svg
+        height: 100%
+        width: auto
+
+
+    // Clouds
+    .cloud
+      position: absolute
+      top: 10vh
+      left: -300px
+      z-index: -1
+
+      animation: cloud-float 20s linear infinite
+      svg
+        width: 200px
+
+      &:nth-child(2)
+        left: 100vw
+        top: 30vh
+        animation-direction: reverse
+        animation-duration: 13s
+        animation-delay: 1200ms
+        svg
+          width: 120px
+
+      &:nth-child(3)
+        top: 50vh
+        animation-duration: 25s
+        animation-delay: 3800ms
+        svg
+          width: 280px
+
+
+
+    @keyframes cloud-float
+      from
+        left: -300px
+      to
+        left: 100vw
+
+
+
+  .page-content
+    @include flex(column, center, center, nowrap)
+    width: 100vw
+    height: 100vh
+    padding-top: 10vh
+    //padding-bottom: max(20vh, 150px)
+    padding-bottom: 10vh
+    .page-title-wrap
+      @include flex(column, flex-start, center, nowrap)
+
+      width: min(90vw, 900px)
+      margin-bottom: 15px
+
+
+
+      h1
+        @include transition(500ms)
+        color: rgba(115,71,18,1)
+        font-size: 48px
+        font-family: $bebas
+
+      &.open
+        h1
+          font-size: 28px
+
+
+
+    .skills-wrap
+      @include flex(column,flex-start,flex-start,nowrap)
+      @include transition(500ms)
+      width: min(90vw, 900px)
+      max-height: 0px
+      padding: 0px
+      height: 100%
+      //mix-blend-mode: difference
+
+      //border: solid 8px #5f240d
+      background-color: $orange-opac
+      border: solid 8px rgba(217,135,35,0.7)
+      border-radius: 5px
+
+      &.open
+        //max-height: calc(80vh - max(20vh, 150px))
+        max-height: 100%
+        padding: 40px
+
+
+      .skills-list
+        @include flex(row, flex-start, flex-start, wrap)
+        margin-bottom: 50px
+
+        &:last-child
+          margin-bottom: 80px
+
+      h2
+        margin-bottom: 20px
+        font-size: min(16px, 3vh)
+        border-bottom: solid 2px rgba(115,71,18,1)
+        //color: #5f240d
+        color: rgba(115,71,18,1)
+        padding-bottom: 12px
+        min-width: 60%
+        font-family: $bebas
+
+      .item
+        margin: min(9px, 2vh)
+        font-size: min(22px, 4vh)
+        //color: #5f240d
+        color: rgba(245,245,245,1)
+        //text-shadow: 2px 2px 1px rgba(150, 150, 150, 0.1)
+        transform: translateY(0px)
+        animation: fade-in-text 1s ease-in-out forwards
+        animation-play-state: paused
+        opacity: 0
+
+
+        &:nth-child(3n)
+          color: rgba(238,238,238,1)
+          animation-delay: 100ms
+
+
+        &:nth-child(2n)
+          color: $white
+          animation-delay: 200ms
+
+        &.open
+          animation-play-state: running
+
+      @keyframes fade-in-text
+        0%
+          transform: translateY(20px)
+          opacity: 0
+        90%
+          transform: translateY(-1px)
+        100%
+          transform: translateY(0px)
+          opacity: 1

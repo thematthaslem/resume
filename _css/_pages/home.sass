@@ -1,0 +1,247 @@
+.page.home
+  @include flex(column, center, center, nowrap)
+
+  .home-navbar-wrap
+    @include flex(row,center,flex-start,nowrap)
+    position: fixed
+    top: 0px
+    left: 0
+    width: 100vw
+    z-index: 999
+
+    a.nav-item
+      position: relative
+      flex: 1
+      background: $gray
+      text-align: center
+      padding: 15px
+      padding-bottom: 20px
+      color: $white
+      &:not(:last-child)
+        margin-right: 2px
+
+      .tracer
+        position: absolute
+        left: 10%
+        bottom: 5px
+        width: 80%
+        height: 6px
+        border-radius: 12px
+        background-color: $dark-gray
+
+
+
+
+
+  .logo-wrap
+    svg
+      width: 252px
+  .matt-wrap
+    position: absolute
+    bottom: min(150px, 20vw)
+    right: 10vw
+
+    svg
+      width: min(15vw, 100px)
+
+  .strap
+    position: absolute
+    top: 0
+    left: 180px
+    height: 0vh
+    width: 4px
+    background: #333
+    border-radius: 10px
+
+    animation: straps 400ms ease-out forwards 350ms
+
+    &.second
+      left: 370px
+
+
+  $menupos: 45vh
+  .menu-wrap
+    border: solid 10px rgba(217, 135, 35, 1)
+    background-color: #333
+    padding: 50px
+    border-radius: 12px
+
+    position: absolute
+    left: 100px
+    top: -50vh
+    z-index: 99
+
+    transform: rotateZ(0deg)
+
+    animation: board 1500ms ease-out forwards 300ms, boarddrop 300ms linear forwards 2300ms
+
+    transform-origin: 10% 30%
+
+    .menu-links
+      @include flex(column, flex-start, flex-start, nowrap)
+      width: 250px
+
+      .link
+        @include flex(column, flex-start, flex-start, nowrap)
+        &::after
+          @include transition(300ms)
+          content: ""
+          height: 3px
+          width: 0%
+          background: $white
+          border-radius: 20px
+
+        &:not(:first-child)
+          margin-top: 15px
+        &:hover
+          &::after
+            width: 100%
+        a
+          font-family: $zuka !important
+          //font-size: 28px
+          font-size: 1.4rem
+          color: $white
+
+    .chalk
+      position: absolute
+      bottom: 0
+      right: 250px
+
+      height: 5px
+      width: 25px
+      background-color: $white
+      border-radius: 10px
+      animation: chalkFall 4000ms ease-in-out 2700ms forwards
+      transform-origin: bottom right
+    .eraser
+      position: absolute
+      bottom: 0
+      right: 200px
+
+      animation: eraserFall 3000ms ease-in-out 2300ms forwards
+      transform-origin: bottom right
+      svg
+        width: 40px
+
+  @keyframes board
+    0%
+      top: -50vh
+      transform: rotateZ(5deg)
+    20%
+      transform: rotateZ(10deg)
+    30%
+      top: $menupos
+      transform: rotateZ(5deg)
+    40%
+      top: calc($menupos - 5vh)
+      //transform: rotateZ(0deg)
+    45%
+      transform: rotateZ(-3deg)
+    50%
+      top: calc($menupos + 2vh)
+
+    60%
+      top: $menupos - 3vh
+      transform: rotateZ(1deg)
+    70%
+      top: $menupos
+      transform: rotateZ(0deg)
+
+    100%
+      top: $menupos
+      transform: rotateZ(0deg)
+
+  @keyframes boarddrop
+    0%
+      transform: rotateZ(0deg)
+    50%
+      transform: rotateZ(17deg)
+    100%
+      transform: rotateZ(15deg)
+
+  @keyframes eraserFall
+    0%
+      right: 200px
+      bottom: 0px
+      transform: rotateZ(0deg)
+
+    33%
+      transform: rotateZ(0deg)
+      bottom: 0
+    35%
+      bottom: 0px
+
+    45%
+      transform: rotateZ(40deg)
+      bottom: -30px
+    50%
+      transform: rotateZ(40deg)
+      right: -100px
+      bottom: -30px
+      //right: -25px
+      //transform: rotateZ(45deg)
+    60%
+      right: -100px
+      transform: rotateZ(-15deg)
+      bottom: -30px
+
+    100%
+      right: -100px
+      bottom: -30px
+      transform: rotateZ(-15deg)
+  @keyframes chalkFall
+    0%
+      right: 250px
+      bottom: 0px
+      transform: rotateZ(0deg)
+
+    33%
+      transform: rotateZ(0deg)
+      bottom: 0
+    35%
+      bottom: 0px
+
+    45%
+      transform: rotateZ(40deg)
+      bottom: -30px
+    50%
+      transform: rotateZ(40deg)
+      right: -140px
+      bottom: -30px
+      //right: -25px
+      //transform: rotateZ(45deg)
+    60%
+      right: -140px
+      transform: rotateZ(-15deg)
+      bottom: -30px
+
+    100%
+      right: -140px
+      bottom: -30px
+      transform: rotateZ(-15deg)
+
+  @keyframes straps
+    0%
+      height: 0vh
+    100%
+      height: $menupos + 4vh
+
+@media only screen and (max-width: 1400px)
+  .page.home
+    .menu-wrap
+      padding: 2rem
+    .matt-wrap
+      right: 15vw
+    .strap
+      &:last-of-type
+        left: 350px
+
+@media only screen and (max-width: 900px)
+  .page.home
+    .menu-wrap
+      display: none
+@media only screen and (max-width: 450px)
+  .page.home
+    .matt-wrap
+      svg
+        width: 80px

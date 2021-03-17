@@ -1,0 +1,47 @@
+.page
+  @include fullscreen()
+  @include transition(800ms)
+
+  position: fixed
+  bottom: 0
+  left: 0
+
+  //max-height: 0px !important
+  overflow: hidden
+
+  //clip-path: circle(0% at 100% 100%)
+
+  //&.open
+    //clip-path: circle(200% at 100% 100%)
+    //max-height: 100vh !important
+
+    //transition: clip-path 800ms, height 100ms 1000ms
+
+  &:not(.curr)
+    *
+      animation-play-state: paused !important
+
+
+
+  .page-content
+    position: absolute
+    bottom: 0
+    left: 0
+
+
+// Larger than mobile
+@media only screen and (min-width: 786px)
+  .page
+    clip-path: circle(0% at 100% 100%)
+
+    &.open
+      clip-path: circle(200% at 100% 100%)
+
+@media only screen and (max-width: 786px)
+  .page
+    left: 100vw
+    opacity: 0
+
+    &.open
+      left: 0vw
+      opacity: 1

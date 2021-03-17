@@ -1,0 +1,19 @@
+.scroll-indicator
+  background-color: rgba(200,200,200,0.4)
+  background-image: url('_pics/_icons/up_arrow.svg')
+  background-position: center
+  background-repeat: no-repeat
+  background-size: 20px
+
+  border-radius: 10px
+
+  width: 60px
+  height: 30px
+
+  position: absolute
+  bottom: 20px
+  left: 50%
+  z-index: 9999
+
+  &.down
+    transform: rotateZ(180deg)
