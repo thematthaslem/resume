@@ -1,0 +1,27 @@
+#loader
+  width: 0px
+  height: 0px
+  margin-right: 0px
+
+  border-radius: 50px
+  border-style: solid
+  border-width: 0px
+  border-color: $lighter-gray
+  border-top-color: $white
+  //background: $red
+
+  animation: loader-spin 300ms ease-in-out infinite
+
+  &.show
+    @include transition(300ms)
+    width: 15px
+    height: 15px
+    margin-right: 10px
+
+    border-width: 3px
+
+  @keyframes loader-spin
+    from
+      transform: rotateZ(0deg)
+    to
+      transform: rotateZ(360deg)

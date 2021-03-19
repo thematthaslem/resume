@@ -1,8 +1,35 @@
-.contact-wrap.open
-  .contact-content-wrap
-    .section
-      include ..\_pics\contact_logo.svg
-    .section
+.contact-wrap
+  .contact-content-all-wrap
+    .contact-content-wrap
+      .section.hor-center
+        include ..\_pics\contact_logo.svg
+      .divider.first
+      .section
+        h2 Matt Haslem
+        a.link(href="mailto:thematthaslem@gmail.com" alt="E-mai me!") thematthaslem@gmail.com
+        .row
+          a.button(target="_blank" href="https://www.linkedin.com/in/thematthaslem/")
+            include ..\_pics\_icons\linkedin.svg
+            span LinkedIn
+          a.button(target="_blank" href="https://github.com/thematthaslem")
+            img(src="_pics/_icons/github.png")
+            span GitHub
+      .divider
+      .section.msg
+        h2 Send Message
+        p.result-message
+        form(id="contact-send-message" method="post")
+          .column.mar-right
+            label(for="contact-name") Name:
+            input(type="text" id="contact-name" name="name" required)
+            label(for="contact-email") E-mail:
+            input(type="email" id="contact-email" name="email" required)
+          .column
+            label(for="contact-msg") Message:
+            textarea(name="msg" id="contact-msg" required)
+            .row.end
+              #loader
+              button#send-contact.button Send
   
   .contact-button-wrap
     .arrow-wrap

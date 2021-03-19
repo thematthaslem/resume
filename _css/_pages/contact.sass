@@ -5,19 +5,135 @@
   top: 0
   z-index: 999999
 
+  .contact-content-all-wrap
+    @include transition(300ms)
+    max-height: 0px
+    overflow-y: hidden
+
+    &.open
+      max-height: 100vw
+
   .contact-content-wrap
-    @include flex(row,center, center, nowrap)
+    @include flex(row,center, center, wrap)
     width: 96vw
-    padding: 40px 0
+    padding: 40px
 
     background: #333
-    border-radius: 0 0 4px 0
+    border-radius: 0 0 0 4px
+
+    .section
+      @include flex(column, flex-start, center, nowrap)
+      height: 100%
+      font-size: 12px
+
+      &.hor-center
+        align-items: center
+
+      & > *:not(:last-child)
+        margin-bottom: 12px
+
+      h2
+        color: $white
+        font-family: $bebas
+        font-size: 18px
+
+      p.result-message
+        margin-top: 0
+        max-width: fit-content
+
+        &.success
+          color: $green
+        &.error
+          color: $light-red
+
+      form
+        @include flex(row, flex-start, flex-start, wrap)
+
+        input, textarea
+          background-color: #424242
+          color: $white
+          width: 200px
+          padding: 8px
+          border-radius: 6px
+          border: none
+          outline: none
+          margin-bottom: 12px
+
+        textarea
+          height: 88px
+
+        label
+          color: $lighter-gray
+          margin-bottom: 4px
+          font-size: 10px
+
+        button
+          transition: none
+          background-color: $orange
+          color: $white
+          padding: 5px 10px
+          border-radius: 5px
+          border: none
+
+          &:hover
+            opacity: 1
+            text-decoration: underline
+
+
+      a.link
+        color: $orange
+
+        &:hover
+          text-decoration: underline
+
+      .row
+        @include flex(row, center, flex-start, nowrap)
+        width: 100%
+
+        &.end
+          justify-content: flex-end
+
+      .column
+        @include flex(column, flex-start, flex-start, nowrap)
+
+        &.mar-right
+          margin-right: 14px
+
+      a.button
+        @include flex(row, center, center, nowrap)
+        transition: none
+        background: #424242
+        color: $white
+        font-size: 11px
+
+        border-radius: 4px
+
+        &:hover
+          text-decoration: underline
+          opacity: 1
+
+        &:not(:last-child)
+          margin-right: 10px
+
+        svg, img
+          width: 15px
+          height: 15px
+          margin-right: 10px
+
+    .divider
+      height: 100px
+      border: solid 1px #424242
+      margin: 0 40px
+
+    svg.contact-logo
+      height: 100px
+      width: auto
 
 
 
   .contact-button-wrap
     @include flex(row,flex-start,center,nowrap)
-    @include transition(300ms)
+    @include transition(200ms)
 
     background: #333
     color: $white
@@ -28,6 +144,12 @@
 
     &:hover
       background: #414141
+
+    &.open
+      .arrow-wrap
+        transform: rotateZ(180deg)
+        border-radius: 0 4px 0 0
+
 
     .text-wrap
       margin: 13px
@@ -45,3 +167,42 @@
       background-position: center
       background-repeat: no-repeat
       background-size: 12px 12px
+
+@media only screen and (max-width: 980px)
+  .contact-wrap
+    .contact-content-wrap
+      .section:first-child, .divider.first
+        display: none
+
+
+@media only screen and (max-width: 825px)
+  .contact-wrap .contact-content-wrap .section form
+    .column
+      width: 100%
+
+      &.mar-right
+        margin-right: 0px
+
+      input, textarea
+        width: 100%
+
+// Mobile
+@media only screen and (max-width: 786px)
+  .contact-wrap .contact-content-all-wrap
+    border-radius: 0 0 0 4px
+
+    &.open
+      max-height: 75vh
+      overflow: auto
+
+    .contact-content-wrap
+      justify-content: flex-start
+
+
+      .section
+        h2
+          font-size: 22px
+      .divider
+        height: 1px
+        width: 100%
+        margin: 40px 0px
